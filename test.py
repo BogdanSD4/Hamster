@@ -5,9 +5,9 @@ def run_script():
 
     # Запуск скрипта
     child = pexpect.spawn(f'python {script_path}')
-    
+
     # Ожидание запроса телефона
-    child.expect('Please enter your phone (or bot token):')
+    child.expect_exact('Please enter your phone (or bot token):')
     child.sendline(phone_number)
     
     # Ожидание запроса кода подтверждения
