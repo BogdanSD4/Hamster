@@ -2,25 +2,21 @@ name: Run test.py
 
 on:
   schedule:
-    - cron: "* * * * *"  # This cron expression means every minute
+    - cron: "* * * * *"
 
 jobs:
   run-script:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3  # Updated to v3
-
+      uses: actions/checkout@v3
     - name: Set up Python
-      uses: actions/setup-python@v4  # Updated to v4
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.x'  # Specify the version of Python you need
-
+        python-version: '3.x'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
-    - name: Run test.py
+    - name: Run script
       run: python test.py
