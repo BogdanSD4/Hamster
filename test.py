@@ -1,10 +1,10 @@
-import pexpect
+import wexpect
 
 def run_script():
     script_path = 'tg_api.py'  # Укажите путь к вашему скрипту
 
     # Запуск скрипта
-    child = pexpect.spawn(f'python {script_path}')
+    child = wexpect.SpawnPipe(f'python {script_path}')
 
     # Ожидание запроса телефона
     child.expect_exact('Please enter your phone (or bot token):')
